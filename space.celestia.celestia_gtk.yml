@@ -24,16 +24,12 @@ modules:
         tag: 3.4.0
         commit: 3147391d946bb4b6c68edd901f2add6ac1f31f8c
 
-  - name: celestia-data
-    buildsystem: simple
-    build-commands:
-      - mkdir -p /app/share/celestia
-      - cp -a data /app/share/celestia
+  - name: celestia-content
+    buildsystem: cmake
     sources:
       - type: git
-        url: https://github.com/CelestiaProject/Celestia
-        tag: 1.6.3
-        commit: e9a70d6a890a37c7f44a4a508f1ce626e188e104
+        url: https://github.com/CelestiaProject/CelestiaContent
+        commit: d9580cd639ba583fec206b008646c2cc65782839
 
   - name: celestia
     buildsystem: cmake-ninja
