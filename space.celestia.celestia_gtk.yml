@@ -1,0 +1,38 @@
+app-id: space.celestia.celestia_gtk
+
+runtime: org.freedesktop.Platform
+runtime-version: '22.08'
+sdk: org.freedesktop.Sdk
+
+command: celestia
+
+finish-args:
+  - --socket=x11
+  - --device=dri
+  - --filesystem=home
+
+modules:
+  - shared-modules/glu/glu-9.json
+  - shared-modules/lua5.3/lua-5.3.5.json
+
+  - name: freeglut
+    buildsystem: cmake
+    sources:
+      - type: git
+        url: https://github.com/FreeGLUTProject/freeglut
+        tag: v3.4.0
+        commit: 63c0e78d84ecbfcf8accd8bac04404427899053b
+
+  - name: celestia
+    buildsystem: simple
+    build-commands:
+      - libtoolize
+      - autoreconf -f
+      - ./configure --with-glut --prefix=/app
+      - make
+      - make install
+    sources:
+      - type: git
+        url: https://github.com/CelestiaProject/Celestia
+        tag: 1.6.3
+        commit: e9a70d6a890a37c7f44a4a508f1ce626e188e104
