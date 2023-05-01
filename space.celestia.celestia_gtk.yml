@@ -41,6 +41,7 @@ modules:
     config-opts:
       - -DENABLE_QT6=ON
       - -DENABLE_QT5=OFF
+      - -DUSE_WAYLAND=ON
     sources:
       - type: git
         url: https://github.com/CelestiaProject/Celestia
