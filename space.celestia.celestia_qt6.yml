@@ -38,6 +38,8 @@ modules:
       - -DENABLE_QT6=ON
       - -DENABLE_QT5=OFF
       - -DUSE_WAYLAND=ON
+    post-install:
+      - mv /app/share/applications/celestia-qt6.desktop /app/share/applications/space.celestia.celestia_qt6.desktop
     sources:
       - type: git
         url: https://github.com/CelestiaProject/Celestia
