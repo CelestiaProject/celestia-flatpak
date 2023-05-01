@@ -1,4 +1,4 @@
-app-id: space.celestia.celestia
+app-id: space.celestia.celestia_qt6
 
 runtime: org.kde.Platform
 runtime-version: '6.4'
