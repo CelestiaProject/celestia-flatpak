@@ -1,0 +1,20 @@
+name: build
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: flatpak/flatpak-github-actions/flatpak-builder@v6.1
+        with:
+          bundle: celestia_qt6.flatpak
+          manifest-path: space.celestia.celestia_qt6.yml
+          cache-key: flatpak-builder-${{ github.sha }}
