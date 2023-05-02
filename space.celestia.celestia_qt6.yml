@@ -40,6 +40,7 @@ modules:
       - -DUSE_WAYLAND=ON
     post-install:
       - mv /app/share/applications/celestia-qt6.desktop /app/share/applications/space.celestia.celestia_qt6.desktop
+      - install -Dm644 /app/share/pixmaps/celestia.png /app/share/icons/hicolor/256x256/apps/space.celestia.celestia_qt6.png # TODO: Update the .desktop file and remove the duplicate icon.
     sources:
       - type: git
         url: https://github.com/CelestiaProject/Celestia
