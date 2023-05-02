@@ -7,7 +7,7 @@ Building and Installing
 -----------------------
 
 ```bash
-$ flatpak-builder build --user --install --force-clean --disable-rofiles-fuse space.celestia.celestia_qt6.yml
+$ flatpak-builder build --user --install --force-clean space.celestia.celestia_qt6.yml
 ```
 
 This may complain about missing dependencies. If it does, try running the following first:
@@ -15,5 +15,7 @@ This may complain about missing dependencies. If it does, try running the follow
 ```bash
 $ flatpak-builder build --install-deps-only --install-deps-from=flathub space.celestia.celestia_qt6.yml
 ```
+
+It also may give a cryptic error about "rofiles". If so, simply add the ` --disable-rofiles-fuse` option.
 
 [celestia]: https://github.com/CelestiaProject/Celestia
